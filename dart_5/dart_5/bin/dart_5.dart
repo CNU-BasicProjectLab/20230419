@@ -5,29 +5,28 @@ void main() {
   jsonEncoding();
 }
 
+// JSON -> array
 void jsonDecoding() {
   // NOTE: Be sure to use double quotes ("),
 // not single quotes ('), inside the JSON string.
 // This string is JSON, not Dart.
   var jsonString = '''
   [
-    {"score": 40},
-    {"score": 80}
+    {"score1": 40},
+    {"score2": 80}
   ]
 ''';
 
   var scores = jsonDecode(jsonString);
-  //assert(scores is List);
-  print(scores is List);
+  print(scores);
 
-  var firstScore = scores[0];
-  //assert(firstScore is Map);
-  print(firstScore is Map);
+  Map firstScore = scores[0];
+  print(firstScore);
 
-  //assert(firstScore['score'] == 40);
-  print(firstScore['score'] == 40);
+  print('${firstScore.keys}, ${firstScore.values}');
 }
 
+// array -> JSON
 void jsonEncoding() {
   var scores = [
     {'score': 40},
